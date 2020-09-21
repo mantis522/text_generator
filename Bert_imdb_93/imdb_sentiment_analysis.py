@@ -14,48 +14,36 @@ To run the code, please download the dataset from https://www.kaggle.com/lakshmi
 """
 
 # Importing and installing necessary libaries
-import numpy as np 
-import pandas as pd 
+import numpy as np
+import pandas as pd
 import os
 import re
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 import nltk
 from nltk.corpus import RegexpTokenizer as regextoken
-nltk.download('stopwords')
-nltk.download('wordnet')
 from nltk.corpus import stopwords
 from nltk import WordNetLemmatizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
-from xgboost import XGBClassifier
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-import gensim
-from gensim.models.keyedvectors import KeyedVectors
-from keras.models import Sequential, Model
-from keras.layers import Dense, Embedding, LSTM, Dropout
-from keras.regularizers import l1, l2
-from sklearn.metrics import classification_report
 import tensorflow as tf
 import tensorflow_estimator
 import tensorflow_hub as hub
 from datetime import datetime
-!pip install bert-tensorflow
 import bert
 from bert import run_classifier
 from bert import optimization
 from bert import tokenization
-import warnings
-warnings.filterwarnings("ignore")
+# import warnings
+# warnings.filterwarnings("ignore")
 
 # Reading in the data
-from google.colab import files
-uploaded = files.upload()
+
+
 #data = pd.read_csv("IMDB Dataset.csv")
 
-import io
-data = pd.read_csv(io.BytesIO(uploaded['IMDB Dataset.csv']))
+data = pd.read_csv("D:/ruin/data/IMDB Dataset.csv")
+
 # Dataset is now stored in a Pandas Dataframe
 
 # Viewing a snapshot of the data
@@ -73,29 +61,29 @@ data["review"][0]
 """We'll define a function to clean and preprocess the reviews."""
 
 def preprocess_text(review):
-    
+
     # Remove breaks
     review = re.sub("<br />", " ", review)
-    
-    # Remove non-letters and non-numbers       
-    alphanum = re.sub("[^a-zA-Z0-9]", " ", review) 
+
+    # Remove non-letters and non-numbers
+    alphanum = re.sub("[^a-zA-Z0-9]", " ", review)
 
     # Convert to lowercase and split into individual words
-    words = alphanum.lower().split()                             
+    words = alphanum.lower().split()
 
     # Remove stop words
-    stop = set(stopwords.words("english"))          
-    stopped = [w for w in words if not w in stop]   
-    
+    stop = set(stopwords.words("english"))
+    stopped = [w for w in words if not w in stop]
+
     # Lemmatize the remaining words
     lmtzr = WordNetLemmatizer()
     tokens = [lmtzr.lemmatize(token) for token in stopped]
-    
+
     # Return the preprocessed string
     return(" ".join(tokens))
 
 # Applying the function to the reviews
-cleaned_reviews = data["review"].apply(preprocess_text) 
+cleaned_reviews = data["review"].apply(preprocess_text)
 print(cleaned_reviews[0])
 
 # Label encoding the target
@@ -112,57 +100,6 @@ vec_train = vectorizer.fit_transform(X_train)
 vec_test = vectorizer.transform(X_test)
 vec_train
 
-# Building an XGBoost classifier
-xgb = XGBClassifier() 
-xgb.fit(vec_train, y_train)
-pred_train = xgb.predict(vec_train)   
-pred_test = xgb.predict(vec_test)
-
-print(classification_report(y_train, pred_train))
-
-print(classification_report(y_test, pred_test))
-
-"""A basic XGBoost model gives 80% accuracy on test data. Next, we'll try a simple LSTM model. We'll use Keras functionalities for tokenizing and transforming the reviews into an input matrix."""
-
-# Checking the average review length
-lens = ([len(i) for i in cleaned_reviews])
-np.mean(lens)
-
-"""Since there's a lot of variance and we don't want very long sequences, we'll restrict the review length to 500 words."""
-
-# Processing the text with the Keras tokenizer
-t = Tokenizer(num_words = 1000) # only including the top 1000 words
-t.fit_on_texts(X_train)
-# Setting a vocabulary size that we will specify in the neural network
-vocab_size = len(t.word_index) + 1
-# The t.word_index contains each unique word in our text and an integer assigned to it
-
-# Encoding the text as sequences of integers
-train_sequences = t.texts_to_sequences(X_train)
-test_sequences = t.texts_to_sequences(X_test)
-# Adding zeros so each sequence has the same length 
-train_padded = pad_sequences(train_sequences, maxlen=500)
-test_padded = pad_sequences(test_sequences, maxlen=500)
-
-warnings.filterwarnings("ignore")
-
-# Building an LSTM model
-embedding_dim = 64 # each word will become a 64-d vector
-top_words = 1000 # the vocabulary size we chose earlier
-max_length = 500 # maximum length of each input string (movie review)
-
-model = Sequential()
-model.add(Embedding(top_words, embedding_dim, input_length=max_length))
-model.add(LSTM(100, activation = "tanh"))
-model.add(Dropout(0.25))
-model.add(Dense(1, activation='sigmoid'))
-model.compile(loss='binary_crossentropy', optimizer = "adam", metrics=['accuracy'])
-model.fit(train_padded, y_train, validation_data=(test_padded, y_test), epochs=10, batch_size=512)
-
-"""The simple LSTM model gives over 86% accuracy on test data after 6-7 epochs. Finally, we'll try out BERT, which is an attention-based transfer learning model in NLP. 
-The code below is adapted from https://colab.research.google.com/github/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb#scrollTo=6o2a5ZIvRcJq
-"""
-
 # Preparing training and test data for BERT
 label_encoder = preprocessing.LabelEncoder()
 data['sentiment'] = label_encoder.fit_transform(data['sentiment'])
@@ -177,13 +114,13 @@ label_list = [0, 1]
 # Data Preprocessing for BERT
 # Use the InputExample class from BERT's run_classifier code to create examples from the data
 train_InputExamples = trainingSet.apply(lambda x: bert.run_classifier.InputExample(guid=None, # Globally unique ID for bookkeeping, unused in this example
-                                                                   text_a = x[DATA_COLUMN], 
-                                                                   text_b = None, 
+                                                                   text_a = x[DATA_COLUMN],
+                                                                   text_b = None,
                                                                    label = x[LABEL_COLUMN]), axis = 1)
 
-test_InputExamples = testSet.apply(lambda x: bert.run_classifier.InputExample(guid=None, 
-                                                                   text_a = x[DATA_COLUMN], 
-                                                                   text_b = None, 
+test_InputExamples = testSet.apply(lambda x: bert.run_classifier.InputExample(guid=None,
+                                                                   text_a = x[DATA_COLUMN],
+                                                                   text_b = None,
                                                                    label = x[LABEL_COLUMN]), axis = 1)
 
 """The following code block will perform of the following steps-
@@ -192,7 +129,7 @@ test_InputExamples = testSet.apply(lambda x: bert.run_classifier.InputExample(gu
 2. Tokenize it (i.e. "sally says hi" -> ["sally", "says", "hi"])
 3. Break words into WordPieces (i.e. "calling" -> ["call", "##ing"]) # substitute for lemmatization
 4. Map our words to indexes using a vocab file that BERT provides
-5. Add special "CLS" and "SEP" tokens 
+5. Add special "CLS" and "SEP" tokens
 6. Append "index" and "segment" tokens to each input
 """
 
@@ -207,13 +144,13 @@ def create_tokenizer_from_hub_module():
     with tf.Session() as sess:
       vocab_file, do_lower_case = sess.run([tokenization_info["vocab_file"],
                                             tokenization_info["do_lower_case"]])
-      
+
   return bert.tokenization.FullTokenizer(
       vocab_file=vocab_file, do_lower_case=do_lower_case)
 
 tokenizer = create_tokenizer_from_hub_module()
 
-# We'll set sequences to be at most 100 tokens long 
+# We'll set sequences to be at most 100 tokens long
 MAX_SEQ_LENGTH = 100
 # Convert our train and test features to InputFeatures that BERT understands.
 train_features = bert.run_classifier.convert_examples_to_features(train_InputExamples, label_list, MAX_SEQ_LENGTH, tokenizer)
@@ -289,7 +226,7 @@ def model_fn_builder(num_labels, learning_rate, num_train_steps,
     label_ids = features["label_ids"]
 
     is_predicting = (mode == tf.estimator.ModeKeys.PREDICT)
-    
+
     # TRAIN and EVAL
     if not is_predicting:
 
@@ -299,7 +236,7 @@ def model_fn_builder(num_labels, learning_rate, num_train_steps,
       train_op = bert.optimization.create_optimizer(
           loss, learning_rate, num_train_steps, num_warmup_steps, use_tpu=False)
 
-      # Calculate evaluation metrics. 
+      # Calculate evaluation metrics.
       def metric_fn(label_ids, predicted_labels):
         accuracy = tf.metrics.accuracy(label_ids, predicted_labels)
         f1_score = tf.contrib.metrics.f1_score(
@@ -313,16 +250,16 @@ def model_fn_builder(num_labels, learning_rate, num_train_steps,
             predicted_labels)
         precision = tf.metrics.precision(
             label_ids,
-            predicted_labels) 
+            predicted_labels)
         true_pos = tf.metrics.true_positives(
             label_ids,
             predicted_labels)
         true_neg = tf.metrics.true_negatives(
             label_ids,
-            predicted_labels)   
+            predicted_labels)
         false_pos = tf.metrics.false_positives(
             label_ids,
-            predicted_labels)  
+            predicted_labels)
         false_neg = tf.metrics.false_negatives(
             label_ids,
             predicted_labels)
@@ -366,7 +303,7 @@ def model_fn_builder(num_labels, learning_rate, num_train_steps,
 BATCH_SIZE = 32
 LEARNING_RATE = 2e-5
 NUM_TRAIN_EPOCHS = 3.0
-# Warmup is a period of time where hte learning rate 
+# Warmup is a period of time where hte learning rate
 # is small and gradually increases--usually helps training.
 WARMUP_PROPORTION = 0.1
 # Model configs
@@ -403,7 +340,7 @@ train_input_fn = bert.run_classifier.input_fn_builder(
     is_training=True,
     drop_remainder=False)
 
-warnings.filterwarnings("ignore")
+# warnings.filterwarnings("ignore")
 print(f'Beginning Training!')
 current_time = datetime.now()
 estimator.train(input_fn=train_input_fn, max_steps=num_train_steps)
@@ -419,13 +356,13 @@ estimator.evaluate(input_fn=test_input_fn, steps=None)
 
 """The model is already outperforming LSTM, but let's increase the max input length to see if we can do better."""
 
-# We'll set sequences to be at most 500 tokens long 
+# We'll set sequences to be at most 500 tokens long
 MAX_SEQ_LENGTH = 500
 # Convert our train and test features to InputFeatures that BERT understands.
 train_features = bert.run_classifier.convert_examples_to_features(train_InputExamples, label_list, MAX_SEQ_LENGTH, tokenizer)
 test_features = bert.run_classifier.convert_examples_to_features(test_InputExamples, label_list, MAX_SEQ_LENGTH, tokenizer)
 
-warnings.filterwarnings("ignore")
+# warnings.filterwarnings("ignore")
 print(f'Beginning Training!')
 current_time = datetime.now()
 estimator.train(input_fn=train_input_fn, max_steps=num_train_steps)
@@ -437,7 +374,7 @@ test_input_fn = run_classifier.input_fn_builder(
     is_training=False,
     drop_remainder=False)
 
-estimator.evaluate(input_fn=test_input_fn, steps=None)
+print(estimator.evaluate(input_fn=test_input_fn, steps=None))
 
 """# Summary of results
 
