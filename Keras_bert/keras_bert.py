@@ -9,67 +9,67 @@ import math
 import json
 import random
 
-# home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
-# home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
-#
-# def making_origin_df(file_directory):
-#     with open(file_directory) as json_file:
-#         json_data = json.load(json_file)
-#
-#     train_review = []
-#     train_label = []
-#
-#     train_data = json_data['data']
-#
-#     for a in range(len(train_data)):
-#         train_review.append(train_data[a]['txt'])
-#         train_label.append(train_data[a]['label'])
-#
-#     df_train = pd.DataFrame(train_review, columns=['data'])
-#     df_train['label'] = train_label
-#
-#     return df_train
-#
-# def making_test_df(file_directory):
-#     with open(file_directory) as json_file:
-#         json_data = json.load(json_file)
-#
-#     test_data = json_data['data']
-#     test_review = []
-#     test_label = []
-#
-#     for a in range(len(test_data)):
-#         test_review.append(test_data[a]['txt'])
-#         test_label.append(test_data[a]['label'])
-#
-#     df = pd.DataFrame(test_review, columns=['data'])
-#     df['label'] = test_label
-#
-#     return df
-#
-# origin_train_df = making_origin_df(home_origin_dir)
-# test_df = making_test_df(home_test_dir)
-# test_df = test_df.sample(frac=1).reset_index(drop=True)
-#
-# TAG_RE = re.compile(r'<[^>]+>')
-#
-#
-# def clean_text(sentence):
-#     # Remove punctuations and numbers
-#     sentence = re.sub('[^a-zA-Z]', ' ', sentence)
-#
-#     # Single character removal
-#     sentence = re.sub(r"\s+[a-zA-Z]\s+", ' ', sentence)
-#
-#     # Removing multiple spaces
-#     sentence = re.sub(r'\s+', ' ', sentence)
-#
-#     sentence = TAG_RE.sub('', sentence)
-#
-#     return sentence
-#
-# origin_train_df['clean_reviews'] = origin_train_df['data'].astype(str).apply(clean_text)
-# print(origin_train_df)
+home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
+home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
+
+def making_origin_df(file_directory):
+    with open(file_directory) as json_file:
+        json_data = json.load(json_file)
+
+    train_review = []
+    train_label = []
+
+    train_data = json_data['data']
+
+    for a in range(len(train_data)):
+        train_review.append(train_data[a]['txt'])
+        train_label.append(train_data[a]['label'])
+
+    df_train = pd.DataFrame(train_review, columns=['data'])
+    df_train['label'] = train_label
+
+    return df_train
+
+def making_test_df(file_directory):
+    with open(file_directory) as json_file:
+        json_data = json.load(json_file)
+
+    test_data = json_data['data']
+    test_review = []
+    test_label = []
+
+    for a in range(len(test_data)):
+        test_review.append(test_data[a]['txt'])
+        test_label.append(test_data[a]['label'])
+
+    df = pd.DataFrame(test_review, columns=['data'])
+    df['label'] = test_label
+
+    return df
+
+origin_train_df = making_origin_df(home_origin_dir)
+test_df = making_test_df(home_test_dir)
+test_df = test_df.sample(frac=1).reset_index(drop=True)
+
+TAG_RE = re.compile(r'<[^>]+>')
+
+
+def clean_text(sentence):
+    # Remove punctuations and numbers
+    sentence = re.sub('[^a-zA-Z]', ' ', sentence)
+
+    # Single character removal
+    sentence = re.sub(r"\s+[a-zA-Z]\s+", ' ', sentence)
+
+    # Removing multiple spaces
+    sentence = re.sub(r'\s+', ' ', sentence)
+
+    sentence = TAG_RE.sub('', sentence)
+
+    return sentence
+
+origin_train_df['clean_reviews'] = origin_train_df['data'].astype(str).apply(clean_text)
+print(origin_train_df)
 
 df = pd.read_csv("D:/ruin/data/IMDB Dataset.csv")
 TAG_RE = re.compile(r'<[^>]+>')

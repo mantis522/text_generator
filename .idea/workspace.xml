@@ -19,22 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23c6dc70-9a6c-4088-b9a4-3b3b91980973" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bert/keras_old_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bert_imdb_93/gpu_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bert_imdb_93/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Keras_bert/Origin_bert_keras.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Keras_bert/TPE_keras_bert.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Keras_bert/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Keras_bert/keras_bert.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bert/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bert/bert_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bert_imdb_93/imdb_sentiment_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bert_imdb_93/imdb_sentiment_analysis.py" afterDir="false" />
-    </list>
+    <list default="true" id="23c6dc70-9a6c-4088-b9a4-3b3b91980973" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +200,7 @@
       <workItem from="1600266304338" duration="4018000" />
       <workItem from="1600276836797" duration="1376000" />
       <workItem from="1600615451252" duration="11548000" />
-      <workItem from="1600666713131" duration="9892000" />
+      <workItem from="1600666713131" duration="10355000" />
     </task>
     <servers />
   </component>
