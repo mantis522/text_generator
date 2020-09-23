@@ -136,7 +136,6 @@ test2 = sequences("This movie is great.")
 test3 = sequences("This movie is not good.")
 test4 = sequences("I hate this movie.")
 test5 = sequences("I love this movie.")
-
 print(model.predict(test))
 print(model.predict(test2))
 print(model.predict(test3))
