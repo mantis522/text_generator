@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23c6dc70-9a6c-4088-b9a4-3b3b91980973" name="Default Changelist" comment="" />
+    <list default="true" id="23c6dc70-9a6c-4088-b9a4-3b3b91980973" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Keras_bert/Origin_bert_keras.py" beforeDir="false" afterPath="$PROJECT_DIR$/Keras_bert/Origin_bert_keras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Keras_bert/TPE_keras_bert.py" beforeDir="false" afterPath="$PROJECT_DIR$/Keras_bert/TPE_keras_bert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LSTM/Origin_LSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/LSTM/Origin_LSTM.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +42,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="2557accd-0169-482b-b846-3493fcdcc829" />
+  <component name="JupyterTrust" id="c2b572da-94b9-4980-99c0-7a284ec60811" />
   <component name="ProjectId" id="1hXZiCEMMl6Xz4SIJpqiFB5pCyE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -63,7 +70,7 @@
       <recent name="D:\ruin\PycharmProjects\text_generator\Keras_bert" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Origin_bert_keras (1)">
+  <component name="RunManager" selected="Python.TPE_keras_bert">
     <configuration name="Origin_bert_keras (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,6 +107,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\ruin\PycharmProjects\text_generator\Keras_bert\Origin_bert_keras.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TPE_keras_bert" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Keras_bert" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Keras_bert/TPE_keras_bert.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,35 +181,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="keras_old_version" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Bert" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\ruin\PycharmProjects\text_generator\Bert\keras_old_version.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TPE_keras_bert" />
         <item itemvalue="Python.Origin_bert_keras (1)" />
         <item itemvalue="Python.Origin_bert_keras" />
         <item itemvalue="Python.keras_bert (1)" />
         <item itemvalue="Python.keras_bert" />
-        <item itemvalue="Python.keras_old_version" />
       </list>
     </recent_temporary>
   </component>
@@ -201,64 +208,73 @@
       <workItem from="1600276836797" duration="1376000" />
       <workItem from="1600615451252" duration="11548000" />
       <workItem from="1600666713131" duration="10355000" />
+      <workItem from="1600736379638" duration="8740000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="755" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600632788690">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="755" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1600632788690" />
-    <state x="804" y="311" key="FileChooserDialogImpl" timestamp="1600628490462">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="-1166" y="291" key="FileChooserDialogImpl" timestamp="1600738033366">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1166" y="291" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600738033366" />
     <state x="804" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1600628490462" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1600693299086">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1600756403053">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600756403053" />
     <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1600693299086" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1600693299086">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1600756403052">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600756403052" />
     <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1600693299086" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1600693299086">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1600756403052">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600756403052" />
     <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1600693299086" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1600693299086">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1600756403052">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600756403052" />
     <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1600693299086" />
-    <state x="601" y="70" key="SettingsEditor" timestamp="1600629374370">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="-1357" y="65" key="SettingsEditor" timestamp="1600738041330">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1357" y="65" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600738041330" />
     <state x="601" y="70" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1600629374370" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/text_generator$n.coverage" NAME="n Coverage Results" MODIFIED="1600267929729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/text_generator$Origin_LSTM.coverage" NAME="Origin_LSTM Coverage Results" MODIFIED="1600624204516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LSTM" />
+    <SUITE FILE_PATH="coverage/text_generator$Origin_bert_keras__1_.coverage" NAME="Origin_bert_keras (1) Coverage Results" MODIFIED="1600738916030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
     <SUITE FILE_PATH="coverage/text_generator$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1600686568093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
-    <SUITE FILE_PATH="coverage/text_generator$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1600277091582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert" />
-    <SUITE FILE_PATH="coverage/text_generator$keras_bert__1_.coverage" NAME="keras_bert (1) Coverage Results" MODIFIED="1600669052516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
-    <SUITE FILE_PATH="coverage/text_generator$Origin_bert_keras__1_.coverage" NAME="Origin_bert_keras (1) Coverage Results" MODIFIED="1600693299079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
-    <SUITE FILE_PATH="coverage/text_generator$test.coverage" NAME="test Coverage Results" MODIFIED="1600260095820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert_imdb_93" />
+    <SUITE FILE_PATH="coverage/text_generator$n.coverage" NAME="n Coverage Results" MODIFIED="1600267929729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/text_generator$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1600628867096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert" />
-    <SUITE FILE_PATH="coverage/text_generator$gpu_test.coverage" NAME="gpu_test Coverage Results" MODIFIED="1600261202089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert_imdb_93" />
+    <SUITE FILE_PATH="coverage/text_generator$TPE_keras_bert.coverage" NAME="TPE_keras_bert Coverage Results" MODIFIED="1600756403036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
+    <SUITE FILE_PATH="coverage/text_generator$Origin_LSTM.coverage" NAME="Origin_LSTM Coverage Results" MODIFIED="1600624204516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LSTM" />
     <SUITE FILE_PATH="coverage/text_generator$imdb_sentiment_analysis.coverage" NAME="imdb_sentiment_analysis Coverage Results" MODIFIED="1600268265829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert_imdb_93" />
+    <SUITE FILE_PATH="coverage/text_generator$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1600277091582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert" />
+    <SUITE FILE_PATH="coverage/text_generator$test.coverage" NAME="test Coverage Results" MODIFIED="1600260095820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert_imdb_93" />
+    <SUITE FILE_PATH="coverage/text_generator$gpu_test.coverage" NAME="gpu_test Coverage Results" MODIFIED="1600261202089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bert_imdb_93" />
+    <SUITE FILE_PATH="coverage/text_generator$keras_bert__1_.coverage" NAME="keras_bert (1) Coverage Results" MODIFIED="1600669052516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Keras_bert" />
   </component>
 </project>

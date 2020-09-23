@@ -7,8 +7,11 @@ import re
 import json
 import random
 
-home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
-home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
+# home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
+# home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
+
+origin_dir = "D:/data/json_data/train_data_full.json"
+test_dir = "D:/data/json_data/test_data_full.json"
 
 # home_RPPN_directory = "D:/ruin/data/json_data/removed_data/removed_PP_neg.json"
 # home_RRPP_directory = "D:/ruin/data/json_data/removed_data/removed_PP_pos.json"
@@ -66,8 +69,8 @@ def making_df(file_directory, label):
 
     return df
 
-origin_train_df = making_origin_df(home_origin_dir)
-test_df = making_test_df(home_test_dir)
+origin_train_df = making_origin_df(origin_dir)
+test_df = making_test_df(test_dir)
 test_df = test_df.sample(frac=1).reset_index(drop=True)
 # removed_neg_PP = making_df(home_RPPN_directory, 0)
 # removed_pos_PP = making_df(home_RRPP_directory, 1)
