@@ -6,12 +6,15 @@ import pandas as pd
 import re
 import json
 import random
+from tensorflow.keras.preprocessing.text import text_to_word_sequence
+from tensorflow.keras import preprocessing
+from keras.preprocessing.text import Tokenizer
 
-# home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
-# home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
+home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
+home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
 
-origin_dir = "D:/data/json_data/train_data_full.json"
-test_dir = "D:/data/json_data/test_data_full.json"
+# origin_dir = "D:/data/json_data/train_data_full.json"
+# test_dir = "D:/data/json_data/test_data_full.json"
 
 # home_RPPN_directory = "D:/ruin/data/json_data/removed_data/removed_PP_neg.json"
 # home_RRPP_directory = "D:/ruin/data/json_data/removed_data/removed_PP_pos.json"
@@ -69,8 +72,8 @@ def making_df(file_directory, label):
 
     return df
 
-origin_train_df = making_origin_df(origin_dir)
-test_df = making_test_df(test_dir)
+origin_train_df = making_origin_df(home_origin_dir)
+test_df = making_test_df(home_test_dir)
 test_df = test_df.sample(frac=1).reset_index(drop=True)
 # removed_neg_PP = making_df(home_RPPN_directory, 0)
 # removed_pos_PP = making_df(home_RRPP_directory, 1)
@@ -97,6 +100,9 @@ def clean_text(sentence):
 
 origin_train_df['clean_reviews'] = origin_train_df['data'].astype(str).apply(clean_text)
 test_df['clean_reviews'] = test_df['data'].astype(str).apply(clean_text)
+
+print(origin_train_df)
+print(test_df)
 
 y_train = origin_train_df['label']
 y_test = test_df['label']
@@ -221,3 +227,26 @@ text_model.fit(train_data, epochs=NB_EPOCHS, batch_size=64, verbose=1)
 score, acc = text_model.evaluate(test_data)
 print('Test score : ', score)
 print('Test acc : ', acc)
+
+tokenizer3 = Tokenizer(num_words=5000)
+
+def index(word):
+    if word in tokenizer3.word_index:
+        return tokenizer3.word_index[word]
+    else:
+        return "0"
+
+def sequences(words):
+    words = text_to_word_sequence(words)
+    seqs = [[index(word) for word in words if word != "0"]]
+    return preprocessing.sequence.pad_sequences(seqs, maxlen=500)
+
+test = sequences("this movie is shit.")
+test2 = sequences("This movie is great.")
+test3 = sequences("This movie is not good.")
+test4 = sequences("I hate this movie.")
+
+print(text_model.predict(test))
+print(text_model.predict(test2))
+print(text_model.predict(test3))
+print(text_model.predict(test4))

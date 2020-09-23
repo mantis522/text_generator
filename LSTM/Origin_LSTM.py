@@ -21,8 +21,8 @@ start_time = time.time()
 origin_directory = "D:/data/train_data_full.json"
 test_directory = "D:/data/test_data_full.json"
 
-home_origin_dir = "D:/data/json_data/train_data_full.json"
-home_test_dir = "D:/data/json_data/test_data_full.json"
+home_origin_dir = "D:/ruin/data/json_data/train_data_full.json"
+home_test_dir = "D:/ruin/data/json_data/test_data_full.json"
 
 
 
@@ -61,8 +61,8 @@ def making_test_df(file_directory):
 
     return df
 
-origin_train_df = making_origin_df(origin_directory)
-test_df = making_test_df(test_directory)
+origin_train_df = making_origin_df(home_origin_dir)
+test_df = making_test_df(home_test_dir)
 test_df = test_df.sample(frac=1).reset_index(drop=True)
 
 val_df = test_df[:12500]

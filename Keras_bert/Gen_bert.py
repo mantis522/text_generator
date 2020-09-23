@@ -127,6 +127,9 @@ def clean_text(sentence):
 concat_train_df['clean_reviews'] = concat_train_df['data'].astype(str).apply(clean_text)
 test_df['clean_reviews'] = test_df['data'].astype(str).apply(clean_text)
 
+print(concat_train_df)
+print(test_df)
+
 y_train = concat_train_df['label']
 y_test = test_df['label']
 
@@ -163,6 +166,9 @@ batched_dataset2 = processed_dataset2.padded_batch(BATCH_SIZE, padded_shapes=((N
 
 train_data = batched_dataset
 test_data = batched_dataset2
+
+print(train_data)
+print(test_data)
 
 class TEXT_MODEL(tf.keras.Model):
 
@@ -235,14 +241,18 @@ text_model = TEXT_MODEL(vocabulary_size=VOCAB_LENGTH,
                         model_output_classes=OUTPUT_CLASSES,
                         dropout_rate=DROPOUT_RATE)
 
-if OUTPUT_CLASSES == 2:
-    text_model.compile(loss="binary_crossentropy",
-                       optimizer="nadam",
-                       metrics=["accuracy"])
-else:
-    text_model.compile(loss="sparse_categorical_crossentropy",
-                       optimizer="nadam",
-                       metrics=["sparse_categorical_accuracy"])
+# if OUTPUT_CLASSES == 2:
+#     text_model.compile(loss="binary_crossentropy",
+#                        optimizer="nadam",
+#                        metrics=["accuracy"])
+# else:
+#     text_model.compile(loss="sparse_categorical_crossentropy",
+#                        optimizer="nadam",
+#                        metrics=["sparse_categorical_accuracy"])
+
+text_model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['accuracy'])
+
+# print(text_model.summary())
 
 text_model.fit(train_data, epochs=NB_EPOCHS, batch_size=64, verbose=1)
 
